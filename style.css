@@ -1,0 +1,24 @@
+main{
+    display: flex;
+    height: 98vh;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+main .torres{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: black;
+    height: 150px;
+    width: 10px;
+    margin: 100px;
+    
+}
+main .torres .discos{
+    border-radius: 5px;
+    border: 1px solid black;
+}
