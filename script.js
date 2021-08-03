@@ -22,6 +22,10 @@ function criarTorres(){
         divEsq.appendChild(disco)
         larguraDisco +=20 
     }
+    divEsq.addEventListener("click", function(event){
+        torreAtual = event.target.id
+        moverDisco(discoAtualId,torreAtual)
+    })
     main.appendChild(divEsq)
     let divMeio = document.createElement("div")
     divMeio.id = 'divMeio'
@@ -34,6 +38,10 @@ function criarTorres(){
     let divDir = document.createElement("div")
     divDir.id = 'divDir'
     divDir.classList.add("torres")
+    divDir.addEventListener("click",function(event){
+        torreAtual = event.target.id
+        moverDisco(discoAtualId,torreAtual)
+    })
     main.appendChild(divDir)
     
 }
@@ -43,7 +51,9 @@ function criarTorres(){
 function moverDisco(discoAtualId,torreAtual){
     let disco = document.getElementById(discoAtualId)
     let torre = document.getElementById(torreAtual)
-    torre.appendChild(disco)
+    torre.append(disco)
+    disco =''
+    torre=''
 }
 
 function validar(){
