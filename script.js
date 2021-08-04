@@ -37,12 +37,8 @@ function criarTorres(){
 
 function clicado(event){
     let first = event.target
-    
-       
     arr.push(first)  
-    
-   
-   if(arr.length === 2){
+    if(arr.length === 2){
         let segundoClique = document.getElementById(arr[1].id)
       
         if(segundoClique.firstChild !==null){
