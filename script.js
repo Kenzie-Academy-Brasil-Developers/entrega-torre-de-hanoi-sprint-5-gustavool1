@@ -66,5 +66,8 @@ function validacao(torre){
 }
 
 function validar(){
-    
+    let filhosQuant =torre.childElementCount;
+    if(filhosQuant === 4){
+            alert("WINNNN");
+    }
 }
