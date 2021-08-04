@@ -1,13 +1,24 @@
+body{
+    font-family: 'Hahmlet', serif;
+    background-color: rgba(187, 186, 186, 0.37);
+}
 main{
     display: flex;
-    height: 98vh;
-    border: 1px solid black;
+    
+   
     justify-content: center;
     align-items: center;
     vertical-align: middle;
 }
-
+button{
+    padding: 10px 30px;
+}
+button:hover{
+    background-color: rgb(202, 201, 201);
+    border-radius: 5px;
+}
 main .torres{
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -16,9 +27,39 @@ main .torres{
     height: 150px;
     width: 10px;
     margin: 10%;
+    margin-top: 5%;
     
 }
 main .torres .discos{
     border-radius: 5px;
     border: 1px solid black;
+}
+
+.win{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    margin: 0 auto;
+}
+.win h1{
+    font-size: 25px;
+}
+.derrota{
+    font-size: 30px;
+  
+    color: red;
+}
+.vitoria{
+    font-size: 30px;
+    
+    color: green;
+}
+
+
+@media screen and (min-width:700px) {
+    main .torres{
+        margin:5%
+    }
 }
