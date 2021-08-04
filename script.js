@@ -29,11 +29,28 @@ function criarTorres(){
 }
 
 
+let disco = document.querySelectorAll(".discos");
+for (let i = 0; i < disco.length; i++){
+    disco[i].addEventListener("click",selecionarDisco)
+}
 
-function moverDisco(){
+let torres = document.querySelectorAll(".torres");
+for (let i = 0; i < torres.length; i++){
+    torres[i].addEventListener("click",moverDisco)
+}
+
+function selecionarDisco(evt){
+let discoAtual = evt.currentTarget.id
 
 }
 
+//quando clicar na torre fazer com que o menor disco seja automaticamente selecionado
+function moverDisco(evt){
+
+
+}
+
+
 function validar(){
-    
+
 }
