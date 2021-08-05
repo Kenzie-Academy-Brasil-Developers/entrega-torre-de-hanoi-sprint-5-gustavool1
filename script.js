@@ -2,6 +2,7 @@ let btnJogar = document.getElementById("btnJogar")
 btnJogar.addEventListener('click',criarTorres)
 let arr = []
 let main = document.getElementById("main1");
+let btnSec = document.getElementById("sectionResetButton")
 function criarTorres(){
    
     btnJogar.style.display='none'
@@ -12,7 +13,6 @@ function criarTorres(){
         torre.classList.add("torres")
         torre.id = i
         torre.addEventListener("click", clicado)
-            
         main.appendChild(torre)
         
     }
@@ -28,6 +28,7 @@ function criarTorres(){
         torreEsq.appendChild(disco)
         larguraDisco +=20 
     }
+    
 }
 
 
@@ -60,6 +61,7 @@ function clicado(event){
    }
    
 }
+
 function validar(torre){
     let filhosQuant =torre.childElementCount;
     if(filhosQuant === 4){
@@ -68,6 +70,20 @@ function validar(torre){
         move.classList.add('vitoria')
         move.innerHTML='Vitoria'
         section.appendChild(move)
+       
+        let btn = document.createElement('button')
+        btn.innerHTML='Reiniciar Jogo'
+        sectionResetButton.appendChild(btn)
+        btn.addEventListener('click', function(){
+            move.remove()
+            while(main.firstChild){
+                main.removeChild(main.firstChild)
+            }
+            btnJogar.style.display='block'
+            btn.style.display='none'
+        })
+        
+        
         
     }
 }

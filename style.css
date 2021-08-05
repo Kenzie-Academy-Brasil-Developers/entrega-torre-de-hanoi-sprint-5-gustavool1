@@ -1,6 +1,6 @@
 body{
     font-family: 'Hahmlet', serif;
-    background-color: rgba(187, 186, 186, 0.37);
+    background-color: rgba(187, 186, 186, 0.521);
 }
 main{
     display: flex;
@@ -10,7 +10,11 @@ main{
     align-items: center;
     vertical-align: middle;
 }
+section p{
+    padding: 10px;
+}
 button{
+    margin-top: 50px;
     padding: 10px 30px;
 }
 button:hover{
@@ -48,16 +52,20 @@ main .torres .discos{
 }
 .derrota{
     font-size: 30px;
-  
+    padding: 20px;
     color: red;
 }
 .vitoria{
     font-size: 30px;
-    
+    padding: 20px;    
     color: green;
 }
 
-
+#sectionResetButton{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
 @media screen and (min-width:700px) {
     main .torres{
         margin:5%
