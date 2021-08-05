@@ -47,12 +47,13 @@ main .torres .discos{
     align-items: center;
     height: 150px;
     margin: 0 auto;
-    margin-bottom: 20%;
-    margin-top: 10%;
+    margin-bottom: 5%;
+    
 }
 .win h1{
     margin-top: 20px;
     font-size: 25px;
+    margin-top: 40px;
 }
 .derrota{
     font-size: 30px;
@@ -74,9 +75,13 @@ main .torres .discos{
     main .torres{
         margin:7%
     }
+<<<<<<< HEAD
 
     .win{
         margin: 0 auto;
     }
   
 }
+=======
+}
+>>>>>>> 7040da1361bbd8f442706d584b9d4b6410b12959
