@@ -49,6 +49,7 @@ main .torres .discos{
 }
 .win h1{
     font-size: 25px;
+    margin-top: 40px;
 }
 .derrota{
     font-size: 30px;
