@@ -12,7 +12,7 @@ function criarTorres(){
         let torre = document.createElement("div")
         torre.classList.add("torres")
         torre.id = i
-        torre.addEventListener("click", clicado)
+        torre.addEventListener("click", checando)
         main.appendChild(torre)
         
     }
@@ -32,9 +32,9 @@ function criarTorres(){
 }
 
 
-function clicado(event){
+function checando(event){
     let first = event.target
-    arr.push(first)  
+    arr.push(first)
     let move = document.createElement('p')
     if(arr.length === 2){
         let segundoClique = document.getElementById(arr[1].id)
@@ -43,7 +43,7 @@ function clicado(event){
             if(primeiroDisco.style.width >arr[0].firstChild.style.width){
                 segundoClique.insertBefore(arr[0].firstChild, arr[1].firstChild)
                 if(segundoClique.id !=='0'){
-                    validar(segundoClique)
+                    vitoria(segundoClique)
                 }
             }else{
                 let section = document.getElementById("sectionInfo")
@@ -51,18 +51,29 @@ function clicado(event){
                 move.innerHTML='Movimento inválido'
                 setTimeout(()=>{
                     move.remove()
-                },2000)
+                },1500)
                 section.appendChild(move)
         }
+        
         }if(segundoClique.firstChild === null){
-            segundoClique.appendChild(arr[0].firstChild)
+            if(arr[0].firstChild === null){
+                let section = document.getElementById("sectionInfo")
+                move.classList.add('derrota')
+                move.innerHTML='Movimento inválido'
+                setTimeout(()=>{
+                    move.remove()
+                },1500)
+                section.appendChild(move)
+            }else{
+                segundoClique.appendChild(arr[0].firstChild)
+            }
         }
         arr = new Array()
    }
    
 }
 
-function validar(torre){
+function vitoria(torre){
     let filhosQuant =torre.childElementCount;
     if(filhosQuant === 4){
         let section = document.getElementById("sectionInfo")
@@ -82,8 +93,5 @@ function validar(torre){
             btnJogar.style.display='block'
             btn.style.display='none'
         })
-        
-        
-        
     }
 }
