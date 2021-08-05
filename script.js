@@ -17,7 +17,7 @@ function criarTorres(){
         
     }
     let torreEsq = document.getElementById("0")
-    let larguraDisco = 30
+    let larguraDisco = 15
     for(let i=0; i<4;i++){
         let disco = document.createElement("div")
         disco.classList.add("discos")
@@ -26,7 +26,7 @@ function criarTorres(){
         disco.style.height=`20px`
         disco.style.background=`rgb(${discColors[i]})`
         torreEsq.appendChild(disco)
-        larguraDisco +=20 
+        larguraDisco +=15
     }
     
 }
