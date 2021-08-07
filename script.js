@@ -1,6 +1,7 @@
 let btnJogar = document.getElementById("btnJogar")
 btnJogar.addEventListener('click',criarTorres)
 let arr = []
+let arr2 = []
 let main = document.getElementById("main1");
 let btnSec = document.getElementById("sectionResetButton")
 function criarTorres(){
@@ -9,11 +10,14 @@ function criarTorres(){
     let discColors = ['120, 143, 219','167, 145, 228','186, 230, 136','228, 129, 72']
     let main = document.getElementById("main1");
     for(let i=0; i<=2;i++){
+        let torreContainer = document.createElement("section")
+        torreContainer.classList.add('sectionTorre')
         let torre = document.createElement("div")
         torre.classList.add("torres")
         torre.id = i
-        torre.addEventListener("click", checando)
-        main.appendChild(torre)
+        torreContainer.appendChild(torre)
+        main.appendChild(torreContainer)
+        torreContainer.addEventListener("click", checando)
         
     }
     let torreEsq = document.getElementById("0")
@@ -30,51 +34,62 @@ function criarTorres(){
     }
     
 }
-
-
 function checando(event){
-    let first = event.target
-    arr.push(first)
-    let move = document.createElement('p')
-    if(arr.length === 2){
-        let segundoClique = document.getElementById(arr[1].id)
-        if(segundoClique.firstChild !==null){
-            let primeiroDisco = segundoClique.firstChild
-            if(primeiroDisco.style.width >arr[0].firstChild.style.width){
-                segundoClique.insertBefore(arr[0].firstChild, arr[1].firstChild)
-                if(segundoClique.id !=='0'){
-                    vitoria(segundoClique)
-                }
-            }else{
-                let section = document.getElementById("sectionInfo")
-                move.classList.add('derrota')
-                move.innerHTML='Movimento inválido'
-                setTimeout(()=>{
-                    move.remove()
-                },1500)
-                section.appendChild(move)
+    let sectionTorres = document.getElementsByClassName('sectionTorre')
+    if(event.target === sectionTorres[0] ||event.target === sectionTorres[1] ||event.target === sectionTorres[2] ){
+        arr2.push(event.target)
+        let torre = arr2[0].firstChild
+        if(torre.firstChild){
+            let torre= arr2[0].firstChild
+            let discoSelecionado = torre.firstChild
+            discoSelecionado.style.border='2px solid black'
+            setTimeout(()=>{
+                discoSelecionado.style.border='none'
+            },3000)
         }
-        
-        }if(segundoClique.firstChild === null){
-            if(arr[0].firstChild === null){
-                let section = document.getElementById("sectionInfo")
-                move.classList.add('derrota')
-                move.innerHTML='Movimento inválido'
-                setTimeout(()=>{
-                    move.remove()
-                },1500)
-                section.appendChild(move)
+       
+    }
+    if(arr2.length === 2){
+        let torre1 = arr2[0].firstChild
+        let primeiroDisco = torre1.firstChild
+        let torre2 = arr2[1].firstChild
+        if(!torre1.firstChild || !torre1.firstChild && torre2.firstChild){
+            erro(false)
+        }
+        if(torre2.firstChild && torre1.firstChild){
+            if(torre2.firstChild.clientWidth > torre1.firstChild.clientWidth){
+                torre2.insertBefore(torre1.firstChild, torre2.firstChild)
+                vitoria(torre2)
             }else{
-                segundoClique.appendChild(arr[0].firstChild)
+                erro(false)
             }
         }
-        arr = new Array()
-   }
-   
+        if(!torre2.firstChild){
+            torre2.appendChild(primeiroDisco)
+        }
+        arr2 = new Array()
+    }
+}
+function erro(mov){
+    if(mov === false){
+        let move = document.createElement('p')
+        let section = document.getElementById("sectionInfo")
+        move.classList.add('derrota')
+        move.innerHTML='Movimento inválido'
+        section.appendChild(move)
+        setTimeout(()=>{
+            move.remove()
+        },1500)
+        section.appendChild(move)
+    }
+    
 }
 
+
+
 function vitoria(torre){
-    let filhosQuant =torre.childElementCount;
+    if(torre !== document.getElementById('0')){
+        let filhosQuant =torre.childElementCount;
     if(filhosQuant === 4){
         let section = document.getElementById("sectionInfo")
         let move = document.createElement('p')
@@ -94,4 +109,6 @@ function vitoria(torre){
             btn.style.display='none'
         })
     }
+    }
+    
 }
