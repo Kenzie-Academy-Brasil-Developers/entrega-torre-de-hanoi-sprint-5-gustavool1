@@ -5,9 +5,8 @@ let arr2 = []
 let main = document.getElementById("main1");
 let btnSec = document.getElementById("sectionResetButton")
 function criarTorres(){
-   
     btnJogar.style.display='none'
-    let discColors = ['120, 143, 219','167, 145, 228','186, 230, 136','228, 129, 72']
+    let discoCores = ['120, 143, 219','167, 145, 228','186, 230, 136','228, 129, 72']
     let main = document.getElementById("main1");
     for(let i=0; i<=2;i++){
         let torreContainer = document.createElement("section")
@@ -28,7 +27,7 @@ function criarTorres(){
         disco.id=`disco${i}`
         disco.style.width=`${larguraDisco}px`
         disco.style.height=`20px`
-        disco.style.background=`rgb(${discColors[i]})`
+        disco.style.background=`rgb(${discoCores[i]})`
         torreEsq.appendChild(disco)
         larguraDisco +=15
     }
@@ -64,11 +63,15 @@ function checando(event){
                 erro(false)
             }
         }
-        if(!torre2.firstChild){
+        if(!torre1.firstChild && !torre2.firstChild){
+            arr2 = new Array()
+        }
+        if(!torre2.firstChild && torre1.firstChild){
             torre2.appendChild(primeiroDisco)
         }
         arr2 = new Array()
     }
+   
 }
 function erro(mov){
     if(mov === false){
@@ -82,11 +85,7 @@ function erro(mov){
         },1500)
         section.appendChild(move)
     }
-    
 }
-
-
-
 function vitoria(torre){
     if(torre !== document.getElementById('0')){
         let filhosQuant =torre.childElementCount;
