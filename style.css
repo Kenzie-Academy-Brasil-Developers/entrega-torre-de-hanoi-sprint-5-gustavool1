@@ -4,18 +4,19 @@ body{
 }
 main{
     display: flex;
-    
-   
     justify-content: center;
     align-items: center;
     vertical-align: middle;
 }
 section p{
     padding: 10px;
+    font-size: 18px;
     text-align: center;
 }
 button{
-    margin-top: 50px;
+    width: 200px;
+    font-size: 23px;
+    
     padding: 10px 30px;
 }
 button:hover{
@@ -35,15 +36,16 @@ main section{
 }
 main section:hover{
     border-radius: 5px;
-    background-color: white;
+    background-color: white;  
 }
 main .torres{
-    cursor: pointer;
+    
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     background-color: black;
+    border-radius: 5px;
     height: 150px;
     width: 10px;
     margin: 13%;
@@ -60,39 +62,65 @@ main .torres .discos{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 150px;
+    height: 200px;
     margin: 0 auto;
-    margin-bottom: 5%;
+   
     
 }
 .win h1{
-    margin-top: 20px;
-    font-size: 25px;
-    margin-top: 40px;
+   
+    font-size: 28px; 
 }
 .derrota{
-    font-size: 30px;
-    padding: 20px;
+    font-size: 25px;
     color: red;
 }
 .vitoria{
-    font-size: 30px;
-    padding: 20px;    
+    font-size: 28px;
     color: green;
 }
+
 
 #sectionResetButton{
     display: flex;
     width: 100%;
     justify-content: center;
 }
+#sectionResetButton button{
+  margin-top: 50px;
+    width: 200px;
+}
 @media screen and (min-width:700px) {
-    main .torres{
-        margin:7%
-    }
-
-    .win{
-        margin: 0 auto;
-    }
+  .win{
+      height: 150px;
+      margin-bottom:0;
+      justify-content: flex-start;
+  }
   
+  .win #btnJogar{
+      margin-top: 100px;
+      width: 150px;
+      font-size: 20px;
+      padding: 10px 20px;
+  }
+  .win h1{
+      font-size: 25px;
+      margin-top: 10px;
+  }
+  section p{
+    font-size: 16px;
+}
+  main{
+      margin-top: 0;
+  }
+  .vitoria{
+    font-size: 25px;
+    color: green;
+}
+  #sectionResetButton button{
+      width: 150px;
+      font-size:20px;
+      padding: 10px 20px;
+      margin-top: 200px;
+  }
 }

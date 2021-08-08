@@ -72,13 +72,13 @@ function checando(event){
 }
 function erro(mov){
     if(mov === false){
-        let move = document.createElement('p')
+        let move = document.getElementById('pLossWin')
         let section = document.getElementById("sectionInfo")
         move.classList.add('derrota')
         move.innerHTML='Movimento inválido'
         section.appendChild(move)
         setTimeout(()=>{
-            move.remove()
+            move.innerHTML=''
         },1500)
         section.appendChild(move)
     }
@@ -98,7 +98,7 @@ function vitoria(torre){
         section.appendChild(move)
        
         let btn = document.createElement('button')
-        btn.innerHTML='Reiniciar Jogo'
+        btn.innerHTML='Reiniciar'
         sectionResetButton.appendChild(btn)
         btn.addEventListener('click', function(){
             move.remove()
