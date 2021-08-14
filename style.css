@@ -1,3 +1,8 @@
+
+:root{
+    --mobileH1:28px;
+    --mobileP:18px;
+}
 body{
     font-family: 'Hahmlet', serif;
     background-color: rgba(187, 186, 186, 0.521);
@@ -10,7 +15,7 @@ main{
 }
 section p{
     padding: 10px;
-    font-size: 18px;
+    font-size: var(--mobileP);
     text-align: center;
 }
 button{
@@ -29,17 +34,16 @@ main section{
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    
     height: 150px;
     width: 150px;
     margin-top: 5%;
 }
+
 main section:hover{
     border-radius: 5px;
     background-color: white;  
 }
 main .torres{
-    
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -56,7 +60,25 @@ main .torres .discos{
     border-radius: 5px;
   
 }
-
+.torres{
+    height: 400px;
+    width: 15px;
+}
+#disco0{
+    width: 25px;
+}
+#disco1{
+  width: 40px;
+}
+#disco2{
+  width: 55px;
+}
+#disco3{
+  width: 70px;
+}
+#disco4{
+  width: 85px;
+}
 .win{
     display: flex;
     flex-direction: column;
@@ -69,7 +91,7 @@ main .torres .discos{
 }
 .win h1{
    
-    font-size: 28px; 
+    font-size: var(--mobileH1); 
 }
 .derrota{
     font-size: 25px;
@@ -91,6 +113,29 @@ main .torres .discos{
     width: 200px;
 }
 @media screen and (min-width:700px) {
+  .sectionTorre{
+      margin:50px;
+  }
+  .torres{
+      height: 400px;
+      width: 15px;
+  }
+  #disco0{
+      width: 80px;
+  }
+  #disco1{
+    width: 100px;
+  }
+  #disco2{
+    width: 120px;
+  }
+  #disco3{
+    width: 140px;
+  }
+  #disco4{
+    width: 160px;
+  }
+  
   .win{
       height: 150px;
       margin-bottom:0;
@@ -113,9 +158,13 @@ main .torres .discos{
   main{
       margin-top: 0;
   }
+  
   .vitoria{
-    font-size: 25px;
+    font-size: 28px;
     color: green;
+}
+.derrota{
+    font-size: 28px;
 }
   #sectionResetButton button{
       width: 150px;

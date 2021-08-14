@@ -25,7 +25,6 @@ function criarTorres(){
         let disco = document.createElement("div")
         disco.classList.add("discos")
         disco.id=`disco${i}`
-        disco.style.width=`${larguraDisco}px`
         disco.style.height=`20px`
         disco.style.background=`rgb(${discoCores[i]})`
         torreEsq.appendChild(disco)
